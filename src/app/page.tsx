@@ -7,6 +7,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import {
+  IconFolder,
+  IconFileInvoice,
+  IconFlask,
+  IconRobot,
+  IconLink,
+  IconBrandGithub,
+  IconBrain,
+  IconSearch,
+  IconCloud,
+  IconBrandTwitter,
+  IconMessage,
+  IconAlertTriangle,
+  IconTool,
+  IconArticle,
+  IconPalette,
+  IconSword,
+  IconUsers,
+  IconArrowRight,
+  IconCheck,
+  IconExternalLink,
+} from "@tabler/icons-react";
+import {
   projects,
   researchRankings,
   agentActivities,
@@ -59,6 +81,27 @@ function getPriorityColor(priority: string): string {
   }
 }
 
+function getLinkIcon(icon: string) {
+  switch (icon) {
+    case "github":
+      return <IconBrandGithub className="h-5 w-5" />;
+    case "folder":
+      return <IconFolder className="h-5 w-5" />;
+    case "brain":
+      return <IconBrain className="h-5 w-5" />;
+    case "search":
+      return <IconSearch className="h-5 w-5" />;
+    case "cloud":
+      return <IconCloud className="h-5 w-5" />;
+    case "twitter":
+      return <IconBrandTwitter className="h-5 w-5" />;
+    case "message":
+      return <IconMessage className="h-5 w-5" />;
+    default:
+      return <IconLink className="h-5 w-5" />;
+  }
+}
+
 export default function Dashboard() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white p-6">
@@ -66,8 +109,9 @@ export default function Dashboard() {
         {/* Header */}
         <header className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              🎛️ Control Center
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent flex items-center gap-3">
+              <IconBrain className="h-8 w-8 text-blue-400" />
+              Control Center
             </h1>
             <p className="text-gray-400 mt-1">OpenClaw Workspace Dashboard</p>
           </div>
@@ -120,20 +164,25 @@ export default function Dashboard() {
         {/* Main Content */}
         <Tabs defaultValue="projects" className="w-full">
           <TabsList className="bg-gray-900/50 border border-gray-800">
-            <TabsTrigger value="projects" className="data-[state=active]:bg-blue-600">
-              📂 Projects
+            <TabsTrigger value="projects" className="data-[state=active]:bg-blue-600 gap-1.5">
+              <IconFolder className="h-4 w-4" />
+              Projects
             </TabsTrigger>
-            <TabsTrigger value="factursimple" className="data-[state=active]:bg-blue-600">
-              🧾 FacturSimple
+            <TabsTrigger value="factursimple" className="data-[state=active]:bg-blue-600 gap-1.5">
+              <IconFileInvoice className="h-4 w-4" />
+              FacturSimple
             </TabsTrigger>
-            <TabsTrigger value="research" className="data-[state=active]:bg-blue-600">
-              🔬 Research
+            <TabsTrigger value="research" className="data-[state=active]:bg-blue-600 gap-1.5">
+              <IconFlask className="h-4 w-4" />
+              Research
             </TabsTrigger>
-            <TabsTrigger value="agents" className="data-[state=active]:bg-blue-600">
-              🤖 Agents
+            <TabsTrigger value="agents" className="data-[state=active]:bg-blue-600 gap-1.5">
+              <IconRobot className="h-4 w-4" />
+              Agents
             </TabsTrigger>
-            <TabsTrigger value="links" className="data-[state=active]:bg-blue-600">
-              🔗 Links
+            <TabsTrigger value="links" className="data-[state=active]:bg-blue-600 gap-1.5">
+              <IconLink className="h-4 w-4" />
+              Links
             </TabsTrigger>
           </TabsList>
 
@@ -177,7 +226,7 @@ export default function Dashboard() {
                       <ul className="space-y-1">
                         {project.nextActions.slice(0, 3).map((action, i) => (
                           <li key={i} className="text-xs text-gray-300 flex items-start gap-2">
-                            <span className="text-blue-400">→</span>
+                            <IconArrowRight className="h-3.5 w-3.5 text-blue-400 mt-0.5 flex-shrink-0" />
                             {action}
                           </li>
                         ))}
@@ -193,9 +242,10 @@ export default function Dashboard() {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-full text-blue-400 transition-colors"
+                            className="text-xs bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-full text-blue-400 transition-colors flex items-center gap-1"
                           >
-                            {link.label} →
+                            {link.label}
+                            <IconExternalLink className="h-3 w-3" />
                           </a>
                         ))}
                       </div>
@@ -216,7 +266,10 @@ export default function Dashboard() {
               {/* Blockers (Priority) */}
               <Card className="bg-red-950/20 border-red-900/50">
                 <CardHeader>
-                  <CardTitle className="text-red-400">🚨 Current Blockers</CardTitle>
+                  <CardTitle className="text-red-400 flex items-center gap-2">
+                    <IconAlertTriangle className="h-5 w-5" />
+                    Current Blockers
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
@@ -238,7 +291,10 @@ export default function Dashboard() {
               {/* Free Tools */}
               <Card className="bg-gray-900/50 border-gray-800">
                 <CardHeader>
-                  <CardTitle>🛠️ Free Tools Built</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    <IconTool className="h-5 w-5 text-primary" />
+                    Free Tools Built
+                  </CardTitle>
                   <CardDescription>Lead magnets and traffic drivers</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -261,7 +317,10 @@ export default function Dashboard() {
               {/* SEO Articles */}
               <Card className="bg-gray-900/50 border-gray-800">
                 <CardHeader>
-                  <CardTitle>📝 SEO Articles ({factursimpleStatus.seoArticles.length})</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    <IconArticle className="h-5 w-5 text-primary" />
+                    SEO Articles ({factursimpleStatus.seoArticles.length})
+                  </CardTitle>
                   <CardDescription>14 days ahead of content calendar</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -269,7 +328,7 @@ export default function Dashboard() {
                     <div className="space-y-2">
                       {factursimpleStatus.seoArticles.map((article, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm">
-                          <span className="text-green-400">✓</span>
+                          <IconCheck className="h-4 w-4 text-green-400 flex-shrink-0" />
                           <span className="text-gray-300">{article}</span>
                         </div>
                       ))}
@@ -281,13 +340,16 @@ export default function Dashboard() {
               {/* Landing Page Features */}
               <Card className="bg-gray-900/50 border-gray-800">
                 <CardHeader>
-                  <CardTitle>🎨 Landing Page Features</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    <IconPalette className="h-5 w-5 text-primary" />
+                    Landing Page Features
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
                     {factursimpleStatus.landingPageFeatures.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm">
-                        <span className="text-green-400">✓</span>
+                        <IconCheck className="h-4 w-4 text-green-400 flex-shrink-0" />
                         <span className="text-gray-300">{feature}</span>
                       </div>
                     ))}
@@ -298,7 +360,10 @@ export default function Dashboard() {
               {/* Competitors */}
               <Card className="bg-gray-900/50 border-gray-800">
                 <CardHeader>
-                  <CardTitle>⚔️ Competitor Analysis</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    <IconSword className="h-5 w-5 text-primary" />
+                    Competitor Analysis
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
@@ -318,7 +383,10 @@ export default function Dashboard() {
               {/* French Communities */}
               <Card className="bg-gray-900/50 border-gray-800">
                 <CardHeader>
-                  <CardTitle>🇫🇷 French Communities</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    <IconUsers className="h-5 w-5 text-primary" />
+                    French Communities
+                  </CardTitle>
                   <CardDescription>Ready for engagement once deployed</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -384,7 +452,10 @@ export default function Dashboard() {
           <TabsContent value="agents" className="mt-6">
             <Card className="bg-gray-900/50 border-gray-800">
               <CardHeader>
-                <CardTitle>🤖 Agent Activity Log</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  <IconRobot className="h-5 w-5 text-primary" />
+                  Agent Activity Log
+                </CardTitle>
                 <CardDescription>Recent autonomous agent actions</CardDescription>
               </CardHeader>
               <CardContent>
@@ -427,21 +498,16 @@ export default function Dashboard() {
                   className="bg-gray-900/50 border border-gray-800 hover:border-blue-500/50 rounded-lg p-4 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-xl group-hover:bg-blue-600/20 transition-colors">
-                      {link.icon === "github" && "🐙"}
-                      {link.icon === "folder" && "📁"}
-                      {link.icon === "brain" && "🧠"}
-                      {link.icon === "search" && "🔍"}
-                      {link.icon === "cloud" && "☁️"}
-                      {link.icon === "twitter" && "🐦"}
-                      {link.icon === "message" && "💬"}
+                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 group-hover:bg-blue-600/20 group-hover:text-blue-400 transition-colors">
+                      {getLinkIcon(link.icon)}
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <div className="font-medium text-white group-hover:text-blue-400 transition-colors">
                         {link.label}
                       </div>
-                      <div className="text-xs text-gray-500 truncate max-w-[200px]">{link.url}</div>
+                      <div className="text-xs text-gray-500 truncate">{link.url}</div>
                     </div>
+                    <IconExternalLink className="h-4 w-4 text-gray-600 group-hover:text-blue-400 transition-colors" />
                   </div>
                 </a>
               ))}
