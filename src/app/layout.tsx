@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Control Center | OpenClaw Dashboard",
-  description: "Track projects, research, and agent activities in one place",
+  title: "Mission Control | Agent Dashboard",
+  description: "Track activities, scheduled tasks, and search across workspace",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-900`}
       >
         {children}
       </body>
