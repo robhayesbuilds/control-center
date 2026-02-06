@@ -1,0 +1,83 @@
+[
+  {
+    "cronId": "5af18f4d-df54-4dd7-961c-df2b6764be8e",
+    "name": "Proactive Work Session",
+    "description": "Autonomous work: research, FacturSimple, communities, marketing",
+    "schedule": {"kind": "every", "everyMs": 1800000},
+    "enabled": true,
+    "nextRun": 1770406608641,
+    "project": "general"
+  },
+  {
+    "cronId": "9421d52c-dd37-43c2-ac76-d178b79fa365",
+    "name": "Morning Briefing",
+    "description": "8am Bangkok - Summarize overnight progress and priorities",
+    "schedule": {"kind": "cron", "expr": "0 1 * * *"},
+    "enabled": true,
+    "nextRun": 1770426000000,
+    "project": "general"
+  },
+  {
+    "cronId": "a45be675-4f45-40c2-bee3-1149e1c749c1",
+    "name": "Research Session",
+    "description": "9pm Bangkok - Study SaaS resources, extract frameworks",
+    "schedule": {"kind": "cron", "expr": "0 14 * * *"},
+    "enabled": true,
+    "nextRun": 1770472800000,
+    "project": "general"
+  },
+  {
+    "cronId": "454725f7-5db1-440d-bfe9-f5e5345e6423",
+    "name": "Night Briefing",
+    "description": "10pm Bangkok - Report accomplishments and plans",
+    "schedule": {"kind": "cron", "expr": "0 15 * * *"},
+    "enabled": true,
+    "nextRun": 1770476400000,
+    "project": "general"
+  },
+  {
+    "cronId": "a37bb15c-5b75-4337-bc24-3414a62fa3c0",
+    "name": "Build Session",
+    "description": "Midnight Bangkok - Code, design, or research",
+    "schedule": {"kind": "cron", "expr": "0 17 * * *"},
+    "enabled": true,
+    "nextRun": 1770483600000,
+    "project": "general"
+  },
+  {
+    "cronId": "fb29b528-f671-412a-8d26-ebaae4675d54",
+    "name": "AI Competitor Research",
+    "description": "Deep dive on TypingMind, Msty, Leonardo, Krea",
+    "schedule": {"kind": "every", "everyMs": 1200000},
+    "enabled": true,
+    "nextRun": 1770404008000,
+    "project": "vixpic"
+  },
+  {
+    "cronId": "fa096ef4-c797-4383-b494-6b14e4ea5305",
+    "name": "AI Provider Research",
+    "description": "Replicate, FAL, Together, OpenAI pricing comparison",
+    "schedule": {"kind": "every", "everyMs": 1200000},
+    "enabled": true,
+    "nextRun": 1770404008000,
+    "project": "vixpic"
+  },
+  {
+    "cronId": "1278373a-ed04-4182-b026-968dd7797406",
+    "name": "AI Landing Page Research",
+    "description": "Competitor landing pages and BYOK messaging",
+    "schedule": {"kind": "every", "everyMs": 1200000},
+    "enabled": true,
+    "nextRun": 1770404008000,
+    "project": "vixpic"
+  },
+  {
+    "cronId": "f50e4e25-4e88-4985-a3b9-70a6122dd975",
+    "name": "AI Pain Points Research",
+    "description": "Reddit/Twitter user complaints about AI image tools",
+    "schedule": {"kind": "every", "everyMs": 1200000},
+    "enabled": true,
+    "nextRun": 1770404008000,
+    "project": "vixpic"
+  }
+]
